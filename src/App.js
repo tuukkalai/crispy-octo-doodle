@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Row, Col} from 'react-bootstrap';
 import TaskList from './TaskList.js';
 import Date from './Date.js';
 import AddButton from './AddButton.js';
@@ -53,13 +54,24 @@ class App extends Component {
     var tasks = this.state.tasks.concat(task);
     this.setState({ tasks: tasks });
   }
+  checkTask(){
+
+  }
   render() {
     return <div style={{ padding: "30px" }}>
-        <Date />
-        <br />
-        <TaskList tasks={this.state.tasks} />
-        <br />
-        <AddButton onClick={this.addTask.bind(this)} />
+        <Row>
+          <Col xs={11}>
+            <Date />
+          </Col>
+          <Col xs={1}>
+            <AddButton onClick={this.addTask.bind(this)} />
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12}>
+            <TaskList tasks={this.state.tasks} />
+          </Col>
+        </Row>
       </div>;
   }
 }
