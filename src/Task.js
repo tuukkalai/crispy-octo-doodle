@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
-import {Row, Col} from 'react-bootstrap';
+import {Row, Col, Button} from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
 
 class Task extends Component {
+  handleClick(){
+    this.props.onClick();
+  }
   render() {
     return <div>
         <Row>
@@ -19,15 +22,10 @@ class Task extends Component {
             <h4 id="activity-title">{this.props.activity_title}</h4>
             <p>{this.props.activity_description}</p>
           </Col>
-          <Col xs={1}>
-            <Row style={{ paddingTop: "10px" }}>
-              <Col xs={6}>
-                <FontAwesome name="times" />
-              </Col>
-              <Col xs={6}>
-                <FontAwesome name="check" />
-              </Col>
-            </Row>
+          <Col xs={1} style={{ marginBottom: "10px" }}>
+            <Button bsStyle="success" bsSize="large" onClick={this.handleClick.bind(this)}>
+              <FontAwesome name="check" />
+            </Button>
           </Col>
         </Row>
       </div>;

@@ -10,8 +10,8 @@ class AddButton extends Component {
     return (
       <div>
         <Row>
-          <Col xs={10} />
-          <Col xs={2}>
+          <Col xs={11} />
+          <Col xs={1}>
             <Button bsStyle="danger" bsSize="large" onClick={this.handleClick.bind(this)}>
               <FontAwesome name="plus" />
             </Button>
